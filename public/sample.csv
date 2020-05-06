@@ -1,11 +1,21 @@
-Test Case,Description
-Test1,This is sample test1
-Test 2,This is sample test2
-Test Number 3,This is sample test3
-Test4,This is sample test4
-Test5,This is sample test5
-Test Case 6,This is sample test 6
-Test Case 7,This is sample test7
-Test Case 8,This is sample test8
-Test 9,This is sample test9
-Test Number 10,This is sample test10
+Test Case,Description,Suites_Name
+Login,This is sample test1,Login.xml
+EmulateUser,This is sample test2,EmulateUser.xml
+NavigateToSandbox,This is sample test3,NavigateToSandbox.xml
+AddLTLShippingOrder,This is sample test4,AddLTLShippingOrder.xml
+AddShipOrderMultipleCopies,This is sample test5,AddShipOrderMultipleCopies.xml
+AddShipOrder,This is sample test 6,AddShipOrder.xml
+AddTLShipOrder,This is sample test7,AddTLShipOrder.xml
+AddParcelShippingOrder,This is sample test8,AddParcelShippingOrder.xml
+AddHouseBill,This is sample test9,AddHouseBill.xml
+ManualQuoteAccept,This is sample test10,ManualQuoteAccept.xml
+ManualQuoteDecline,,ManualQuoteDecline.xml
+Execute1aNoCustomerRates,,Execute1aNoCustomerRates.xml
+Execute1bCustomerRates,,Execute1bCustomerRates.xml
+TLNoCustomerRates,,TLNoCustomerRates.xml
+TLCustomerRates,,TLCustomerRates.xml
+CarAppt,,CarAppt.xml
+CarAptt1b,,CarAptt1b.xml
+CPU1aNoCustomerRates,,CPU1aNoCustomerRates.xml
+CPU1bCustomerRates,,CPU1bCustomerRates.xml
+AddRouteLoad,,AddRouteLoad.xml
