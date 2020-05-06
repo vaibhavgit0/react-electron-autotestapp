@@ -2,6 +2,7 @@
   height: 100vh;
   display: flex;
   color: white;
+  background:white;
 }
 
 .App-logo {
@@ -29,19 +30,20 @@
 
 .App__Aside {
   width: 25%;
-  background-color: white;
   text-align: center;
   color: #2E4158;
   padding: 0 25px;
   overflow-x:scroll;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
+.App__Aside td:hover {
+    background:#ddd;
+}
 
 .App__Form {
   width: 75%;
   padding: 25px 40px;
   overflow: auto;
-  background:white;
   color: #2E4158;
 }
 input {
@@ -233,4 +235,24 @@ input {
 .button3:hover {
   background-color: #f44336;
   color: white;
+}
+.App_Align {
+    margin:auto;
+    right:45%;
+    top:45%;
+    bottom:0;
+    position:absolute;
+    z-index:100;
+}
+#overlay {
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5) !important; /* Black background with opacity */
+    cursor: pointer;
+    z-index:100;
+    position:fixed;
 }

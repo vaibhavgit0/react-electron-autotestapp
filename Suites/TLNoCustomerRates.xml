@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TMS TEST CASES">
+ 
+	<test name="TLNoCustomerRates">
+	<parameter name="actualWeight" value="35000"/>
+		<classes>
+		    <class name="com.TMS.admin.DriverInitialization" />
+			<class name="com.TMS.admin.ConfigurationFile" />
+			<class name="com.TMS.admin.Login" />
+			<class name="com.TMS.admin.EmulateUser" />
+			<class name="com.TMS.admin.NavigateToSandbox" />
+			<class name="com.TMS.admin.TLNoCustomerRates" />
+		    
+		</classes>
+	</test>
+</suite>

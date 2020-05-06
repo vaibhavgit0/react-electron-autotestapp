@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TMS TEST CASES">
+
+	<test name="Create3z_CreateMultiLegOcean">
+		<classes>
+			<class name="com.TMS.admin.DriverInitialization" />
+			<class name="com.TMS.admin.ConfigurationFile" />
+			<class name="com.TMS.admin.Login" />
+			<class name="com.TMS.admin.EmulateUser" />
+			<class name="com.TMS.admin.NavigateToSandbox" />
+			<class name="com.TMS.admin.AddHouseBill" />
+			<class name="com.TMS.admin.Create3z_CreateMultiLegOcean" />
+			
+		</classes>
+	</test>
+</suite>

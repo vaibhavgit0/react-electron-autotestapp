@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TMS TEST CASES">
+ 
+	<test name="ALL TEST CASES">
+	<parameter name="actualWeight" value="35000"/>
+		<classes>
+		    <class name="com.TMS.admin.DriverInitialization" />
+			<class name="com.TMS.admin.ConfigurationFile" />
+			<class name="com.TMS.admin.Login" />
+			<class name="com.TMS.admin.EmulateUser" />
+			<class name="com.TMS.admin.NavigateToSandbox" />
+		    <class name="com.TMS.admin.AddLTLShippingOrder" />  
+			<class name="com.TMS.admin.AddShipOrderMultipleCopies" />
+			<class name="com.TMS.admin.AddShipOrder" /> 
+			<class name="com.TMS.admin.AddTLShipOrder" />
+			<class name="com.TMS.admin.AddParcelShippingOrder" />
+			<class name="com.TMS.admin.AddHouseBill" />
+			<class name="com.TMS.admin.ManualQuoteAccept" />
+			<class name="com.TMS.admin.ManualQuoteDecline" />
+			<class name="com.TMS.admin.Execute1aNoCustomerRates" />
+			<class name="com.TMS.admin.Execute1bCustomerRates"/>
+			<class name="com.TMS.admin.TLNoCustomerRates" />
+			<class name="com.TMS.admin.TLCustomerRates" />
+			<class name="com.TMS.admin.CarAppt" />
+			<class name="com.TMS.admin.CarAptt1b" />
+			<class name="com.TMS.admin.CPU1aNoCustomerRates" />
+			<class name="com.TMS.admin.CPU1bCustomerRates" />
+			<class name="com.TMS.admin.AddRouteLoad" />
+		</classes>
+	</test>
+</suite>
