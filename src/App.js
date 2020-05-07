@@ -30,9 +30,11 @@ class App extends Component{
             data: [],
             filteredData: [],
             load:false,
-            output:false
+            output:false,
+            param:''
         }
         this.fetchFile = this.fetchFile.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
     fetchFile(path, callback) {
         var httpRequest = new XMLHttpRequest();
@@ -66,78 +68,72 @@ class App extends Component{
             })
         }, 1000);
     }
-    executeCommand(e, value, suites) {
+    getResult(e, path) {
+            this.setState({
+                load:true,
+            })
+            axios.get(path).then((response) => {
+                console.log(response)
+                setTimeout(() => {
+                    this.setState({
+                        load:false,
+                        output:true
+                    })
+                }, 1000);
+
+            }).catch((error) => {
+                console.log(error)
+                alert("Please Wait... Maybe the last test-case is still running or did not run!!")
+                setTimeout(() => {
+                    this.setState({
+                        load:false
+                    })
+                }, 1000);
+
+            })
+    }
+
+    executeCommand(e, value, suites, param) {
         var state = this;
         e.preventDefault();
         this.setState({
-            load:true
+            load:true,
+            param: ''
         })
 
         alert("Executing test case :"+ value);
 
         axios
-        .post("/execCommand", {suites})
+        .post("/execCommand", {suites, param})
         .then(response => {
             console.log(response.data);
             if(response.data.body == "success") {
-                alert("Testcase Executed Succesfully !!")
+                alert("Testcase Execution Started !!")
                 state.setState({
                     load:false,
-                    output:true
+                    //output:true
                 })
             }
         }).
         catch(err => {
             console.log(err.code);
             console.log(err.message);
-            alert("something failed !!")
+            alert("Something Went Wrong!!")
             state.setState({
                 load:false,
                 //output:true
             })
         })
 
-      /*fetch("/execCommand", {
-          method: 'POST',
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({
-            suites
-          })
-      }).then(function(response) {
-          if (response.status >= 400) {
-            throw new Error("Bad response from server");
-          }
-          return response.json();
-      }).then(function(data) {
-          if(data.body == "success") {
-              alert("Testcase Executed Succesfully !!")
-              state.setState({
-                  load:false,
-                  output:true
-              })
-          }
-          else {
-              alert("Something Failed !!")
-              state.setState({
-                  load:false,
-                  output:true
-              })
-          }
-      }).catch(function(err) {
-          console.log(err)
-          alert("Please wait..")
-          setTimeout(() =>  {
-              state.setState({
-                  load:false,
-                  output:true
-              })
-              alert("Testcase Executed!!")
-
-          }, 60000)
-      });*/
-
     }
 
+    handleChange(e) {
+        //alert(e.target.value);
+        this.setState({
+            param: e.target.value,
+        })
+
+    }
     renderDetails() {
         const { toggle, name, desc, suite } = this.state;
         if(!toggle) {
@@ -156,9 +152,10 @@ class App extends Component{
                                     <div style={{width:"60%"}}>
                                         <p><strong>Test Case Selected:</strong> {name}</p>
                                         <p><strong>Description:</strong> {desc}</p>
+                                        <p><strong>Parameter: </strong><input classname="form-control" type="text" name="param" value={this.state.param} onChange={this.handleChange}/></p>
                                     </div>
                                     <div>
-                                        <button className="FormField__Button mr-20" onClick={(e) => this.executeCommand(e, name, suite)}>Run</button>
+                                        <button className="FormField__Button mr-20" onClick={(e) => this.executeCommand(e, name, suite, this.state.param)}>Run</button>
                                     </div>
                                 </div>
                             </div>
@@ -218,19 +215,14 @@ class App extends Component{
                                 {this.renderDetails()}
                             </div>
                             { this.state.output && <div className="App__Data">
-                                <h1>Output</h1>
+                                <h1>Output:</h1>
                                 <div className="FormCenter">
                                     <iframe src="./test-output/index.html" width="800" height="400"></iframe>
                                 </div>
                             </div>}
-                            {/*<div className="App__Data">
-                                <h1>Previous Runs</h1>
-                                <div className="FormCenter">
-                                    Previous runs of testcases will be displayed here.
-                                </div>
-                            </div>*/}
                             <br/>
-                            <button className="FormField__Button mr-20" onClick={(e) => this.executeCommand(e, " All", "All.xml")}>Run All</button>
+                            <button className="FormField__Button mr-20" onClick={(e) => this.executeCommand(e, " All", "All.xml")}>Run All</button>&nbsp;
+                            <button className="FormField__Button" onClick={(e) => this.getResult(e, process.env.PUBLIC_URL +"/test-output/index.html")}>View Last Run Result</button>
                         </div>
                     </div>
                 </div>

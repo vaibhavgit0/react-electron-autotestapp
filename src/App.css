@@ -256,3 +256,6 @@ input {
     z-index:100;
     position:fixed;
 }
+.FormField .row div p input {
+    width: 50%;
+}
