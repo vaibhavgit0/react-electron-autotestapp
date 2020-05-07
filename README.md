@@ -16,6 +16,6 @@ Clone the repo in your terminal by clicking the green clone or download button a
 
 - Type ```npm install``` to install all dependencies in directory.
 
-- Last, but not least, type ```npm start``` in client directory and after successful run type ```node run electron-start``` in another tab to run the app locally.
+- Last, but not least, type ```npm start``` in client directory and after successful run type ```npm run electron-start``` in another tab to run the app locally.
 
 - To look at the code, just open up the project in your favorite code editor!
