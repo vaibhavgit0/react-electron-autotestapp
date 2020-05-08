@@ -19,3 +19,5 @@ Clone the repo in your terminal by clicking the green clone or download button a
 - Last, but not least, type ```npm start``` in client directory and after successful run type ```npm run electron-start``` in another tab to run the app locally.
 
 - To look at the code, just open up the project in your favorite code editor!
+
+- Note: If you have windows just replace the chromedriver path in config.properties as chromedriver.exe.
